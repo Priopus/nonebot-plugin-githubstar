@@ -263,7 +263,6 @@ async def check_github_test_plugin(bot: Bot, event: Event) -> None:
         await bot.send(event, f"无法查询到需要订阅的信息，请检查重试")
     try:
         response = requests.get(f"https://api.github.com/repos/{project_name}")
-        await bot.send(event, f"https://api.github.com/repos/{project_name}")
         data = response.json()
         issues_count = data.get('open_issues_count', 0)
         stars_count = data.get('stargazers_count', 0)
